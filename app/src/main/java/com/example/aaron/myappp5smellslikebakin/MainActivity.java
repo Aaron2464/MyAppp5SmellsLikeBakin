@@ -3,16 +3,17 @@ package com.example.aaron.myappp5smellslikebakin;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
-public class MainActivity extends LoggingActivity implements ListFragment.OnRecipeSelectedInterface{
+public class MainActivity extends AppCompatActivity implements ListFragment.OnRecipeSelectedInterface{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListFragment savedFrament = (ListFragment) getFragmentManager().findFragmentById(R.id.placeHolder)
+        ListFragment savedFrament = (ListFragment) getFragmentManager().findFragmentById(R.id.placeHolder);
         if (savedFrament == null) {
             ListFragment fragment = new ListFragment();
             FragmentManager fragmentManager = getFragmentManager();
