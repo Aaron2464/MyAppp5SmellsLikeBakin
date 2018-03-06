@@ -1,5 +1,6 @@
 package com.example.aaron.myappp5smellslikebakin;
 
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TableLayout;
 import android.widget.Toast;
 
 public class ViewPagerFragment extends Fragment{
@@ -31,11 +33,20 @@ public class ViewPagerFragment extends Fragment{
             public Fragment getItem(int position) {
                 return position == 0 ? ingredientsFragment : directionsFragment;
             }
+
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return position == 0 ? "Ingrediemts" : "Directions";
+            }
+
             @Override
             public int getCount() {
                 return 2;
             }
         });
+
+        TabLayout tabLayout = (TabLayout)view.findViewById(R.id.tabLayout);
+        tabLayout.setupWithViewPager(viewPager);
         return view;
     }
 
