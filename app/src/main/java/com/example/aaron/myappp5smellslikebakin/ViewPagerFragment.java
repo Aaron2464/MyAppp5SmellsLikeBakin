@@ -9,7 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableLayout;
 import android.widget.Toast;
 
 public class ViewPagerFragment extends Fragment{
@@ -25,6 +24,9 @@ public class ViewPagerFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_viewpager,container,false);
 
         final IngredientsFragment ingredientsFragment = new IngredientsFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt(KEY_RECIPE_INDEX,index);
+        ingredientsFragment.setArguments(bundle);
         final DirectionsFragment directionsFragment = new DirectionsFragment();
 
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewPager);
