@@ -14,7 +14,6 @@ import android.widget.Toast;
 public class ViewPagerFragment extends Fragment{
 
     public static final String KEY_RECIPE_INDEX = "recipe_index";
-    public static final String KEY_IS_INGREDIENTS = "key_is_indredients";
 
     @Nullable
     @Override
@@ -24,15 +23,13 @@ public class ViewPagerFragment extends Fragment{
         Toast.makeText(getActivity(),Recipes.names[index], Toast.LENGTH_SHORT).show();
         View view = inflater.inflate(R.layout.fragment_viewpager,container,false);
 
-        final CheckBoxesFragment ingredientsFragment = new CheckBoxesFragment();
+        final IngredientsFragment ingredientsFragment = new IngredientsFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(KEY_RECIPE_INDEX,index);
-        bundle.putBoolean(KEY_IS_INGREDIENTS,true);
         ingredientsFragment.setArguments(bundle);
-        final CheckBoxesFragment directionsFragment = new CheckBoxesFragment();
+        final DirectionsFragment directionsFragment = new DirectionsFragment();
         bundle = new Bundle();
         bundle.putInt(KEY_RECIPE_INDEX,index);
-        bundle.putBoolean(KEY_IS_INGREDIENTS,false);
         directionsFragment.setArguments(bundle);
 
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewPager);
